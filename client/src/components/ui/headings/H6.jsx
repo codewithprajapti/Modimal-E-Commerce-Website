@@ -1,4 +1,4 @@
-import React from 'react';
+import { cn } from '../../../utils/cn';
 
 export default function H6({ className, children, ...props }) {
   return (
@@ -10,5 +10,3 @@ export default function H6({ className, children, ...props }) {
     </h6>
   );
 }
-
-

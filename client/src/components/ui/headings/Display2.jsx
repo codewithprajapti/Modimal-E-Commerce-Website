@@ -1,3 +1,5 @@
+import { cn } from '../../../utils/cn';
+
 export default function Display2({ className, children, ...props }) {
   return (
     <h1
@@ -8,5 +10,3 @@ export default function Display2({ className, children, ...props }) {
     </h1>
   );
 }
-
-
