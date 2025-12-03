@@ -1,8 +1,13 @@
 import React from 'react'
+import { H1 } from './components/ui/headings/index'
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+
+<H1>Hello</H1>
+
+    </div>
   )
 }
 
