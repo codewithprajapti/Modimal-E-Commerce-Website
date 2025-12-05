@@ -2,7 +2,7 @@ import React from 'react';
 import HgreenLine from './HgreenLine';
 import { NavLink } from 'react-router';
 
-import BLG from '../typography/body/BLG'
+import BLG from '../typography/body/BLG';
 
 // Image and Icons
 
@@ -22,19 +22,49 @@ export default function Header() {
           <img src={Logo} alt="Modimal" />
         </div>
 
+        {/* NavBar */}
+
         <div className="flex gap-6 text-gray-404040">
-          <BLG className='cursor-pointer hover:text-black active:text-primary-600'> Collection </BLG>
-          <BLG className='cursor-pointer hover:text-black active:text-primary-600'> New In </BLG>
-          <BLG className='cursor-pointer hover:text-black active:text-primary-600'> Modiweek </BLG>
-          <BLG className='cursor-pointer hover:text-black active:text-primary-600'> Plus Size </BLG>
-          <BLG className='cursor-pointer hover:text-black active:text-primary-600'> Sustainability </BLG>
+          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+            Collection
+          </BLG>
+          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+            New In
+          </BLG>
+          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+            Modiweek
+          </BLG>
+          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+            Plus Size
+          </BLG>
+          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+            Sustainability
+          </BLG>
         </div>
 
+        {/* Icons */}
+
         <div className="flex gap-6 items-center">
-          <img className='hover:bg-gray-ededed cursor-pointer' src={SearchIcon} alt="SearchIcon" />
-          <img className='hover:bg-gray-ededed cursor-pointer' src={ProfileIcon} alt="ProfileIcon" />
-          <img className='hover:bg-gray-ededed cursor-pointer' src={FavoriteIcon} alt="FavoriteIcon" />
-          <img className='hover:bg-gray-ededed cursor-pointer' src={BagIcon} alt="BagIcon" />
+          <img
+            className="hover:bg-gray-ededed cursor-pointer"
+            src={SearchIcon}
+            alt="SearchIcon"
+          />
+          <img
+            className="hover:bg-gray-ededed cursor-pointer"
+            src={ProfileIcon}
+            alt="ProfileIcon"
+          />
+          <img
+            className="hover:bg-gray-ededed cursor-pointer"
+            src={FavoriteIcon}
+            alt="FavoriteIcon"
+          />
+          <img
+            className="hover:bg-gray-ededed cursor-pointer"
+            src={BagIcon}
+            alt="BagIcon"
+          />
         </div>
       </div>
     </div>
