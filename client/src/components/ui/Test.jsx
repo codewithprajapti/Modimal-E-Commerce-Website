@@ -3,7 +3,7 @@ import React from 'react';
 export default function Test() {
   return (
     <>
-      <div className=" left-0 right-0 w-[100%] top-0 pt-4 z-50">
+      <div className=" left-0 right-0 w-full top-50 pt-4 z-50">
         <div className="bg-white shadow-lg border border-gray-200 rounded-sm ">
           <div className="grid grid-cols-3 gap-8 p-8">
             {/* Category Column */}

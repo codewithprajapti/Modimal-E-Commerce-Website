@@ -7,12 +7,19 @@ import BLG from '../typography/body/BLG';
 // Image and Icons
 
 import Logo from '../../assets/Logo.svg';
-import SearchIcon from '../../assets/icons/Header-search-icon.svg';
-import ProfileIcon from '../../assets/icons/Header-profile-icon.svg';
-import FavoriteIcon from '../../assets/icons/Header-favorite-icon.svg';
-import BagIcon from '../../assets/icons/Header-bag-icon.svg';
+import { Icons } from '../../utils/headerImages';
 
 export default function Header() {
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const navItems = [
+    'Collection',
+    'New In',
+    'Modiweek',
+    'Plus Size',
+    'Sustainability',
+  ];
+
   return (
     <div className="flex flex-col w-full bg-white">
       <HgreenLine />
@@ -25,19 +32,37 @@ export default function Header() {
         {/* NavBar */}
 
         <div className="flex gap-6 text-gray-404040">
-          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+          <BLG
+            className="cursor-pointer relative hover:text-black active:text-primary-600"
+            onMouseEnter={() => setActiveDropdown(item)}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
             Collection
           </BLG>
-          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+          <BLG
+            className="cursor-pointer relative hover:text-black active:text-primary-600"
+            onMouseEnter={() => setActiveDropdown(item)}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
             New In
           </BLG>
-          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+          <BLG
+            className="cursor-pointer relative hover:text-black active:text-primary-600"
+          >
             Modiweek
           </BLG>
-          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+          <BLG
+            className="cursor-pointer relative hover:text-black active:text-primary-600"
+            onMouseEnter={() => setActiveDropdown(item)}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
             Plus Size
           </BLG>
-          <BLG className="cursor-pointer hover:text-black active:text-primary-600">
+          <BLG
+            className="cursor-pointer relative hover:text-black active:text-primary-600"
+            onMouseEnter={() => setActiveDropdown(item)}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
             Sustainability
           </BLG>
         </div>
@@ -47,22 +72,22 @@ export default function Header() {
         <div className="flex gap-6 items-center">
           <img
             className="hover:bg-gray-ededed cursor-pointer"
-            src={SearchIcon}
+            src={Icons.SearchIcon}
             alt="SearchIcon"
           />
           <img
             className="hover:bg-gray-ededed cursor-pointer"
-            src={ProfileIcon}
+            src={Icons.ProfileIcon}
             alt="ProfileIcon"
           />
           <img
             className="hover:bg-gray-ededed cursor-pointer"
-            src={FavoriteIcon}
+            src={Icons.FavoriteIcon}
             alt="FavoriteIcon"
           />
           <img
             className="hover:bg-gray-ededed cursor-pointer"
-            src={BagIcon}
+            src={Icons.BagIcon}
             alt="BagIcon"
           />
         </div>

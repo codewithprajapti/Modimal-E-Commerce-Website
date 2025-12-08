@@ -240,62 +240,64 @@ export default function Header() {
       {/* Full-width Dropdown Container - positioned absolutely from header */}
       {activeDropdown && menuData[activeDropdown] && (
         <div
-          className="absolute left-0 right-0 top-0 w-full bg-white shadow-lg border-t border-gray-200 z-50"
+          className="absolute left-0 right-0 top-20 w-full bg-transparent z-50"
           onMouseEnter={() => setActiveDropdown(activeDropdown)}
           onMouseLeave={() => setActiveDropdown(null)}
         >
-          <div className="max-w-screen-xl mx-auto px-20 py-8">
-            {/* Columns Section */}
-            <div
-              className="grid gap-16 mb-8"
-              style={{
-                gridTemplateColumns: `repeat(${menuData[activeDropdown].columns.length}, 1fr)`,
-              }}
-            >
-              {menuData[activeDropdown].columns.map((column, idx) => (
-                <div key={idx}>
-                  <h3 className="font-semibold text-sm mb-4 text-gray-900">
-                    {column.title}
-                  </h3>
-                  <ul className="space-y-3 text-sm text-gray-600">
-                    {column.items.map((listItem, itemIdx) => (
-                      <li
-                        key={itemIdx}
-                        className="hover:text-black cursor-pointer transition-colors"
-                      >
-                        {listItem}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+          <div className="bg-white mt-7 border-t border-gray-200">
+            <div className="max-w-screen-xl mx-auto px-20 py-8">
+              {/* Columns Section */}
+              <div
+                className="grid gap-16 mb-8"
+                style={{
+                  gridTemplateColumns: `repeat(${menuData[activeDropdown].columns.length}, 1fr)`,
+                }}
+              >
+                {menuData[activeDropdown].columns.map((column, idx) => (
+                  <div key={idx}>
+                    <h3 className="font-semibold text-sm mb-4 text-gray-900">
+                      {column.title}
+                    </h3>
+                    <ul className="space-y-3 text-sm text-gray-600">
+                      {column.items.map((listItem, itemIdx) => (
+                        <li
+                          key={itemIdx}
+                          className="hover:text-black cursor-pointer transition-colors"
+                        >
+                          {listItem}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
 
-            {/* Images Section */}
-            {menuData[activeDropdown].images &&
-              menuData[activeDropdown].images.length > 0 && (
-                <div
-                  className="grid gap-6"
-                  style={{
-                    gridTemplateColumns: `repeat(${menuData[activeDropdown].images.length}, 1fr)`,
-                  }}
-                >
-                  {menuData[activeDropdown].images.map((image, idx) => (
-                    <div key={idx} className="cursor-pointer group">
-                      <div
-                        className={`${image.bgColor} h-64 rounded flex items-center justify-center transition-transform group-hover:scale-[1.02]`}
-                      >
-                        <span className="text-gray-600 text-lg">
+              {/* Images Section */}
+              {menuData[activeDropdown].images &&
+                menuData[activeDropdown].images.length > 0 && (
+                  <div
+                    className="grid gap-6"
+                    style={{
+                      gridTemplateColumns: `repeat(${menuData[activeDropdown].images.length}, 1fr)`,
+                    }}
+                  >
+                    {menuData[activeDropdown].images.map((image, idx) => (
+                      <div key={idx} className="cursor-pointer group">
+                        <div
+                          className={`${image.bgColor} h-64 rounded flex items-center justify-center transition-transform group-hover:scale-[1.02]`}
+                        >
+                          <span className="text-gray-600 text-lg">
+                            {image.label}
+                          </span>
+                        </div>
+                        <p className="mt-3 text-sm text-gray-700 font-medium">
                           {image.label}
-                        </span>
+                        </p>
                       </div>
-                      <p className="mt-3 text-sm text-gray-700 font-medium">
-                        {image.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
+                    ))}
+                  </div>
+                )}
+            </div>
           </div>
         </div>
       )}
