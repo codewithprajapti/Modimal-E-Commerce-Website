@@ -1,6 +1,6 @@
 import React from 'react';
 import { Images } from '../../utils/headerImages';
-import BLG from '../typography/body/BLG';
+import { BLG, BMD } from '../typography/body';
 
 export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
   const menuData = {
@@ -128,7 +128,7 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
       {activeDropdown && menuData[activeDropdown] && (
         // Main Div
         <div
-          className="absolute left-0 right-0 top-20 w-full bg-transparent z-50"
+          className="absolute left-0 right-0 top-20 w-full bg-white z-50"
           onMouseEnter={() => {
             setActiveDropdown(activeDropdown);
           }}
@@ -138,11 +138,10 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
         >
           {/* Div for Designing */}
 
-          <div className="bg-white mt-7 flex flex-wrap">
+          <div className="bg-white mt-7 flex flex-wrap px-20 justify-between">
             {/* Deatils Div */}
-
             <div
-              className="grid"
+              className="grid gap-5"
               style={{
                 gridTemplateColumns: `repeat(${menuData[activeDropdown].columns.length}, 1fr)`,
               }}
@@ -153,11 +152,35 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
                     <BLG className="text-black active:text-primary-600">
                       {col.title}
                     </BLG>
-                    <div className="space-y-3 flex flex-col">
+                    <div className="mt-5 space-y-3 flex flex-col">
                       {col.items.map((item, index) => {
-                        <BLG key={index}> {item} </BLG>;
+                        return (
+                          <BLG
+                            key={index}
+                            className="text-gray-404040 hover:text-black active:text-primary-600 cursor-pointer"
+                          >
+                            {item}
+                          </BLG>
+                        );
                       })}
                     </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div
+              className="grid gap-6"
+              style={{
+                gridTemplateColumns: `repeat(${menuData[activeDropdown].images.length}, 1fr)`,
+              }}
+            >
+              {menuData[activeDropdown].images.map((image, index) => {
+                return (
+                  <div className="flex flex-col">
+                    <img src={image.src} alt={image.label} />
+
+                    <BMD className="text-black mt-5"> {image.label} </BMD>
                   </div>
                 );
               })}

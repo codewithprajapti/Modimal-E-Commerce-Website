@@ -1,80 +1,76 @@
-import React from 'react';
+import { useState } from 'react';
 import HgreenLine from './HgreenLine';
-import { NavLink } from 'react-router';
-
-import BLG from '../typography/body/BLG';
+import { BLG } from '../typography/body';
 
 // Image and Icons
-
 import Logo from '../../assets/Logo.svg';
 import { Icons } from '../../utils/headerImages';
+import NavDropdown from './NavDropdown';
+import Hero from './Hero';
+import SearchDropdown from './SearchDropdown';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const navItems = [
-    'Collection',
-    'New In',
-    'Modiweek',
-    'Plus Size',
-    'Sustainability',
-  ];
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <div className="flex flex-col w-full bg-white">
+    <div className="flex flex-col w-full bg-white relative">
       <HgreenLine />
 
-      <div className="flex px-20 mt-4 justify-between">
+      {/* TOP BAR */}
+      <div className="flex px-20 mt-4 justify-between items-center">
         <div>
           <img src={Logo} alt="Modimal" />
         </div>
 
-        {/* NavBar */}
-
+        {/* NAV LINKS */}
         <div className="flex gap-6 text-gray-404040">
           <BLG
             className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown(item)}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseEnter={() => setActiveDropdown('Collection')}
           >
             Collection
           </BLG>
           <BLG
             className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown(item)}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseEnter={() => setActiveDropdown('New In')}
           >
             New In
           </BLG>
-          <BLG
-            className="cursor-pointer relative hover:text-black active:text-primary-600"
-          >
+          <BLG className="cursor-pointer relative hover:text-black active:text-primary-600">
             Modiweek
           </BLG>
           <BLG
             className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown(item)}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseEnter={() => setActiveDropdown('Plus Size')}
           >
             Plus Size
           </BLG>
           <BLG
             className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown(item)}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseEnter={() => setActiveDropdown('Sustainability')}
           >
             Sustainability
           </BLG>
         </div>
 
-        {/* Icons */}
-
+        {/* ICONS */}
         <div className="flex gap-6 items-center">
+         
           <img
             className="hover:bg-gray-ededed cursor-pointer"
-            src={Icons.SearchIcon}
-            alt="SearchIcon"
+            src={isSearchOpen ? Icons.CloseIcon : Icons.SearchIcon}
+            alt={isSearchOpen ? 'Close Search' : 'Open Search'}
+            onClick={() => {
+              if (isSearchOpen) {
+                setIsSearchOpen(false); 
+              } else {
+                setIsSearchOpen(true); 
+                setActiveDropdown(null); 
+              }
+            }}
           />
+
           <img
             className="hover:bg-gray-ededed cursor-pointer"
             src={Icons.ProfileIcon}
@@ -91,6 +87,23 @@ export default function Header() {
             alt="BagIcon"
           />
         </div>
+      </div>
+
+      {/* NAV DROPDOWN */}
+      <NavDropdown
+        setActiveDropdown={setActiveDropdown}
+        activeDropdown={activeDropdown}
+      />
+
+      {/* SEARCH DROPDOWN */}
+      <SearchDropdown
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
+
+      {/* PAGE CONTENT (BLURRED WHEN SEARCH OPEN) */}
+      <div className={`mt-6 transition ${isSearchOpen ? 'blur-sm' : ''}`}>
+        <Hero />
       </div>
     </div>
   );

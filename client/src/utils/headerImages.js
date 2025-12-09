@@ -1,6 +1,7 @@
 // Icons
 
 import SearchIcon from '../assets/icons/Header-search-icon.svg';
+import CloseIcon from '../assets/icons/Header-close-icon.svg';
 import ProfileIcon from '../assets/icons/Header-profile-icon.svg';
 import FavoriteIcon from '../assets/icons/Header-favorite-icon.svg';
 import BagIcon from '../assets/icons/Header-bag-icon.svg';
@@ -31,6 +32,7 @@ import Sustainability2 from '../assets/Navbar Dropdown Images/Sustainability2.pn
 
 export const Icons = {
   SearchIcon,
+  CloseIcon,
   ProfileIcon,
   FavoriteIcon,
   BagIcon,
