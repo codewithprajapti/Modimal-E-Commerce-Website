@@ -102,9 +102,9 @@ export default function Header() {
       />
 
       {/* PAGE CONTENT (BLURRED WHEN SEARCH OPEN) */}
-      <div className={`mt-6 transition ${isSearchOpen ? 'blur-sm' : ''}`}>
+      {/* <div className={`mt-6 transition ${isSearchOpen ? 'blur-sm' : ''}`}>
         <Hero />
-      </div>
+      </div> */}
     </div>
   );
 }
