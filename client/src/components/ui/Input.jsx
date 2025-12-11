@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { cn } from '../../utils/cn';
 import { Eye, EyeOff } from 'lucide-react'; // You can also use Heroicons or any icon lib
 
-export default function Input({ label, id, type = 'text', className, ...props }) {
+export default function Input({
+  label,
+  id,
+  type = 'text',
+  className, btn,
+  ...props
+}) {
   const [showPassword, setShowPassword] = useState(false);
   const inputId = id || label?.toLowerCase().replace(/\s+/g, '-');
   const isPassword = type === 'password';
@@ -14,7 +20,7 @@ export default function Input({ label, id, type = 'text', className, ...props })
         type={isPassword && showPassword ? 'text' : type}
         placeholder=" "
         className={cn(
-          'peer w-full h-9 border border-gray-606060 text-gray-606060 px-4 pr-10 rounded-0 outline-none hover:border-gray-404040 focus:border-primary-400 transition-all duration-200',
+          'peer w-full h-9 border border-gray-606060 text-gray-606060 px-4 pr-10 rounded-0 outline-none hover:border-gray-404040 focus:border-primary-400 transition-all duration-200 flex',
           className
         )}
         {...props}
