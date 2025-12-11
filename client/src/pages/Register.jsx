@@ -7,8 +7,13 @@ import Apple from '../assets/icons/AppleIcon.svg';
 import Google from '../assets/icons/GoogleIcon.svg';
 import Facebook from '../assets/icons/FacebookIcon.svg';
 import Input from '../components/ui/Input';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+  const navigate = useNavigate();
+  const loginNavigate = () => {
+    navigate('/login');
+  };
   return (
     <div className="flex flex-wrap h-fit px-20 mt-7 gap-10">
       <div className="w-[40vw]  border-0 border-red-500">
@@ -31,7 +36,10 @@ export default function Register() {
 
         <BSM className="flex gap-5 mt-5">
           Already Have Account?
-          <ButtonSM className="text-primary-500 hover:text-primary-600 cursor-pointer px-0 py-0">
+          <ButtonSM
+            className="text-primary-500 hover:text-primary-600 cursor-pointer px-0 py-0"
+            onClick={loginNavigate}
+          >
             Login
           </ButtonSM>
         </BSM>

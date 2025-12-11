@@ -1,80 +1,71 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import HgreenLine from './HgreenLine';
 import { BLG } from '../typography/body';
-
-// Image and Icons
 import Logo from '../../assets/Logo.svg';
 import { Icons } from '../../utils/headerImages';
 import NavDropdown from './NavDropdown';
-import Hero from './Hero';
 import SearchDropdown from './SearchDropdown';
 
-export default function Header() {
+export default function Header({ isSearchOpen, setIsSearchOpen }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const navigate = useNavigate();
+  const profileClick = () => {
+    navigate('/register');
+  };
+  const homeNavigate = () => {
+    navigate('/');
+  };
 
   return (
-    <div className="flex flex-col w-full bg-white relative">
+    <div className="flex flex-col w-full bg-white relative z-50">
       <HgreenLine />
 
       {/* TOP BAR */}
       <div className="flex px-20 mt-4 justify-between items-center">
-        <div>
+        <div className="cursor-pointer" onClick={homeNavigate}>
           <img src={Logo} alt="Modimal" />
         </div>
 
         {/* NAV LINKS */}
         <div className="flex gap-6 text-gray-404040">
-          <BLG
-            className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown('Collection')}
-          >
-            Collection
-          </BLG>
-          <BLG
-            className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown('New In')}
-          >
-            New In
-          </BLG>
-          <BLG className="cursor-pointer relative hover:text-black active:text-primary-600">
-            Modiweek
-          </BLG>
-          <BLG
-            className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown('Plus Size')}
-          >
-            Plus Size
-          </BLG>
-          <BLG
-            className="cursor-pointer relative hover:text-black active:text-primary-600"
-            onMouseEnter={() => setActiveDropdown('Sustainability')}
-          >
-            Sustainability
-          </BLG>
+          {[
+            'Collection',
+            'New In',
+            'Modiweek',
+            'Plus Size',
+            'Sustainability',
+          ].map((item) => (
+            <BLG
+              key={item}
+              className="cursor-pointer relative hover:text-black active:text-primary-600"
+              onMouseEnter={() => setActiveDropdown(item)}
+            >
+              {item}
+            </BLG>
+          ))}
         </div>
 
         {/* ICONS */}
         <div className="flex gap-6 items-center">
-         
           <img
             className="hover:bg-gray-ededed cursor-pointer"
             src={isSearchOpen ? Icons.CloseIcon : Icons.SearchIcon}
             alt={isSearchOpen ? 'Close Search' : 'Open Search'}
             onClick={() => {
               if (isSearchOpen) {
-                setIsSearchOpen(false); 
+                setIsSearchOpen(false);
               } else {
-                setIsSearchOpen(true); 
-                setActiveDropdown(null); 
+                setIsSearchOpen(true);
+                setActiveDropdown(null);
               }
             }}
           />
-
           <img
             className="hover:bg-gray-ededed cursor-pointer"
             src={Icons.ProfileIcon}
             alt="ProfileIcon"
+            onClick={profileClick}
           />
           <img
             className="hover:bg-gray-ededed cursor-pointer"
@@ -100,11 +91,6 @@ export default function Header() {
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
       />
-
-      {/* PAGE CONTENT (BLURRED WHEN SEARCH OPEN) */}
-      {/* <div className={`mt-6 transition ${isSearchOpen ? 'blur-sm' : ''}`}>
-        <Hero />
-      </div> */}
     </div>
   );
 }

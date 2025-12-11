@@ -43,7 +43,7 @@ export default function Footer() {
     Icons.Tiktok,
   ];
   return (
-    <div className="bg-gray-404040 w-full mt-10 px-20 py-15">
+    <div className="bg-gray-404040 w-full mt-5 px-20 py-15">
       <div className="grid grid-cols-5 gap-10">
         <div className="col-span-2 flex flex-col gap-5">
           <H5 className="text-white">

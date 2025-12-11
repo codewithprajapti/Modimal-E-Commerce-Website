@@ -177,7 +177,7 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
             >
               {menuData[activeDropdown].images.map((image, index) => {
                 return (
-                  <div className="flex flex-col">
+                  <div key={index} className="flex flex-col">
                     <img src={image.src} alt={image.label} />
 
                     <BMD className="text-black mt-5"> {image.label} </BMD>

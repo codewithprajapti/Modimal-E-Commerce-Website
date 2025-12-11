@@ -6,8 +6,13 @@ import Apple from '../assets/icons/AppleIcon.svg';
 import Google from '../assets/icons/GoogleIcon.svg';
 import Facebook from '../assets/icons/FacebookIcon.svg';
 import Input from '../components/ui/Input';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
+  const registerNavigate = () => {
+    navigate('/register');
+  };
   return (
     <div className="flex flex-wrap h-fit px-20 mt-7 gap-10">
       <div className="w-[40vw]  border-0 border-red-500">
@@ -38,7 +43,10 @@ export default function Login() {
         </div>
         <BSM className="mt-5 px-18 text-center leading-6">
           New To Modimal? <span> </span>
-          <span className="text-primary-500 cursor-pointer">
+          <span
+            className="text-primary-500 cursor-pointer"
+            onClick={registerNavigate}
+          >
             Create An Account
           </span>
         </BSM>
