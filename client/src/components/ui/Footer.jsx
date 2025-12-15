@@ -47,7 +47,7 @@ export default function Footer() {
       <div className="grid grid-cols-5 gap-10">
         <div className="col-span-2 flex flex-col gap-5">
           <H5 className="text-white">
-            Join Our Club, Get 15% Off for Your Birthday{' '}
+            Join Our Club, Get 15% Off for Your Birthday
           </H5>
 
           <div className="flex border border-primary-50 px-2 py-2 items-center justify-between">
@@ -60,10 +60,14 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center justify-between gap-2">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              className={
+                'h-7 cursor-pointer px-0 py-0 w-7 border border-gray-606060 text-gray-606060 rounded-0 outline-none hover:border-gray-404040 focus:border-primary-400 transition-all duration-200'
+              }
+            />
             <OSM className="text-white">
-              By Submitting your email, you agree to recive advertising emails
-              from Modimal.
+              By Submitting your email, you agree to recive advertising emails from Modimal.
             </OSM>
           </div>
         </div>
