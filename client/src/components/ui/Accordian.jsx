@@ -8,7 +8,7 @@ export default function Accordian({faq}) {
   return (
     <div className="flex flex-col border-b border-gray-cbcbcb py-2">
       <div
-        className={`flex cursor-pointer ${open ? 'text-primary-500' : 'text-black'} gap-3`}
+        className={`flex cursor-pointer ${open ? 'text-primary-500' : 'text-black'} justify-between`}
         onClick={() => {
           isOpen(prevopen => !prevopen);
         }}
@@ -17,7 +17,7 @@ export default function Accordian({faq}) {
         {open ? <Minus /> : <Plus />}
       </div>
       <Activity mode={open ? "visible" : "hidden"}>
-        <BMD>
+        <BMD className='mt-3 leading-7'>
           {faq.anwser}
         </BMD>
       </Activity>

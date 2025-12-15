@@ -1,5 +1,7 @@
 import React from 'react';
 import Accordian from '../components/ui/Accordian';
+import BreadCrumb from '../components/ui/BreadCrumb';
+import { H3 } from '../components/typography/headings';
 
 export default function FAQs() {
   const faqs = [
@@ -45,9 +47,16 @@ export default function FAQs() {
         We require our factories and mills to sign our Commitment to People (as well as our Commitment to Planet) contract. The contract is in line with the International Labor Oganisation’s conventions, there is absolutely no subcontracting, discrimination or working above 60 hours per week, all overtime must be paid in a timely manner and at a premium rate. Our suppliers are required to advocate for education and sustainable solutions to eradicate child labor within their local region. We ask that all our suppliers work to incorporate diversity and inclusivity into the workplace, starting with unbiased hiring practices.`,
     },
   ];
-  return <div className='border-0 px-20 flex flex-col gap-5'>
-    {faqs.map((faq,index)=>{
-        return <Accordian faq={faq}/>
-    })}
-  </div>;
+  const breadcrumblinks = [{ name: 'FAQs', url: '/faqs' }];
+  return (
+    <div className="flex flex-col">
+      <BreadCrumb links={breadcrumblinks} />
+      <div className="border-0 px-40 flex flex-col gap-5 mt-5">
+        <H3>FAQs</H3>
+        {faqs.map((faq, index) => {
+          return <Accordian key={index} faq={faq} />;
+        })}
+      </div>
+    </div>
+  );
 }

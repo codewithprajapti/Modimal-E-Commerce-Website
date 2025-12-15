@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { OSM } from '../typography/overlines';
 import { BLG } from '../typography/body';
 import { CMD } from '../typography/caption';
-
+import { Link } from 'react-router-dom';
 export default function Footer() {
   const footerLinks = [
     {
@@ -23,8 +23,8 @@ export default function Footer() {
       links: [
         { name: 'Orders & Shipping', url: '#' },
         { name: 'Returns & Refunds', url: '#' },
-        { name: 'FAQs', url: '#' },
-        { name: 'Contact Us', url: '#' },
+        { name: 'FAQs', url: 'faqs' },
+        { name: 'Contact Us', url: 'contact-us' },
       ],
     },
     {
@@ -76,7 +76,7 @@ export default function Footer() {
                 {col.links.map((link, index) => {
                   return (
                     <BLG key={index} className="text-white cursor-pointer">
-                      {link.name}
+                      <Link to={`/${link.url}`}>{link.name}</Link>
                     </BLG>
                   );
                 })}
@@ -101,11 +101,13 @@ export default function Footer() {
           </div>
           <div className="flex gap-2 items-center">
             <img src={Icons.Copyright} alt="Copyright" />
-            <CMD className={'text-gray-cbcbcb'}>2025 Modimal. All Rights Reserved.</CMD>
+            <CMD className={'text-gray-cbcbcb'}>
+              2025 Modimal. All Rights Reserved.
+            </CMD>
           </div>
         </div>
-        <div className='border border-white px-3 py-3 bg-primary-600'>
-            <img src={Icons.Person} alt="" />
+        <div className="border border-white px-3 py-3 bg-primary-600">
+          <img src={Icons.Person} alt="" />
         </div>
       </div>
     </div>
