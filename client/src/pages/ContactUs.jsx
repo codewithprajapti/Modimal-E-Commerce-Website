@@ -5,6 +5,7 @@ import { BMD, BSM, BXS } from '../components/typography/body';
 import { ButtonSM } from '../components/typography/buttons';
 import Input from '../components/ui/Input';
 import { Mail, MessageSquareText, Contact } from 'lucide-react';
+import Checkbox from '../components/ui/Checkbox';
 
 export default function ContactUs() {
   const inputClasses =
@@ -68,12 +69,7 @@ export default function ContactUs() {
             <Input label={'Message'} type="text" className={inputClasses} />
 
             <div className={'flex gap-5 items-center'}>
-              <input
-                type="checkbox"
-                className={
-                  'h-5 cursor-pointer px-0 py-0 w-5 border border-gray-606060 text-gray-606060 rounded-0 outline-none hover:border-gray-404040 focus:border-primary-400 transition-all duration-200'
-                }
-              />
+              <Checkbox isDarkMOde={true} />
               <BSM className={'text-black'}>
                 I have read and understood the contact us privacy and policy.
               </BSM>

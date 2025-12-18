@@ -1,7 +1,9 @@
 import { Heart } from 'lucide-react';
 import { Activity, useEffect, useState } from 'react';
-import { BSM } from '../typography/body';
+import { ButtonSM } from '../typography/buttons';
 import { SmallChips } from '../typography/chips';
+import { H6 } from '../typography/headings';
+import { BMD } from '../typography/body';
 
 export default function Card({ details }) {
   const [hover, setHover] = useState(false);
@@ -17,18 +19,15 @@ export default function Card({ details }) {
       }}
     >
       {/* Image Section */}
-      <div className="relative overflow-hidden bg-[#E8C8A8]">
+      <div className="relative overflow-hidden">
         {/* New Badge */}
         <Activity mode={details.chips ? 'visible' : 'hidden'}>
-          {/* <span className="absolute top-3 left-3 bg-white text-sm px-3 py-1">
-            New
-          </span> */}
-          <SmallChips className='absolute top-3 left-3' lbel='New'/>
+          <SmallChips className="absolute top-3 left-3" lbel="New" />
         </Activity>
 
         {/* Wishlist Icon */}
         <button className="absolute top-3 right-3">
-          <Heart className='cursor-pointer' fill="white" stroke="black" />
+          <Heart className="cursor-pointer" fill="white" stroke="black" />
         </button>
 
         {/* Product Image */}
@@ -40,19 +39,23 @@ export default function Card({ details }) {
 
         {/* CTA Overlay */}
         <Activity mode={hover ? 'visible' : 'hidden'}>
-          <BSM className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] cursor-pointer">
+          <ButtonSM
+            className={
+              'absolute bottom-4 left-1/2 -translate-x-1/2 cursor-pointer bg-primary-600 text-white w-[90%]'
+            }
+          >
             Next
-          </BSM>
+          </ButtonSM>
         </Activity>
       </div>
 
       {/* Content */}
       <div className="mt-4 space-y-2">
-        <h3 className="font-semibold text-lg">{details.title}</h3>
+        <H6 className="text-black">{details.title}</H6>
 
         <div className="flex items-center justify-between">
-          <p className="text-gray-600">{details.subtitle}</p>
-          <span className="font-semibold">{details.price}</span>
+          <BMD className="text-black">{details.subtitle}</BMD>
+          <H6 className="text-black">{details.price}</H6>
         </div>
 
         {/* Color Options */}
@@ -60,8 +63,8 @@ export default function Card({ details }) {
           {details.colors.map((color, index) => (
             <span
               key={index}
-              className="w-4 h-4 rounded-full border"
-              style={{ backgroundColor: color }}
+              className="w-6 h-6 rounded-full border cursor-pointer"
+              style={{ backgroundColor: color, border: color }}
             />
           ))}
         </div>

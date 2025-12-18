@@ -5,6 +5,7 @@ import { OSM } from '../typography/overlines';
 import { BLG } from '../typography/body';
 import { CMD } from '../typography/caption';
 import { Link } from 'react-router-dom';
+import Checkbox from './Checkbox';
 export default function Footer() {
   const footerLinks = [
     {
@@ -60,14 +61,10 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center justify-between gap-2">
-            <input
-              type="checkbox"
-              className={
-                'h-7 cursor-pointer px-0 py-0 w-7 border border-gray-606060 text-gray-606060 rounded-0 outline-none hover:border-gray-404040 focus:border-primary-400 transition-all duration-200'
-              }
-            />
+            <Checkbox  />
             <OSM className="text-white">
-              By Submitting your email, you agree to recive advertising emails from Modimal.
+              By Submitting your email, you agree to recive advertising emails
+              from Modimal.
             </OSM>
           </div>
         </div>
