@@ -56,3 +56,20 @@ body {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+.sustainabilty_main {
+  background-image: url('../src/assets/Landing\ Images/Sustainability.png');
+  height: 80vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: coverin;
+}
+.sustainabilty_hero {
+  background-image: url('../src/assets/Sustainability\ Images/big pic sustainability.png');
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
