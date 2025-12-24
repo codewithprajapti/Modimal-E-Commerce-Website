@@ -51,23 +51,40 @@ export default function Card({ details }) {
 
       {/* Content */}
       <div className="mt-4 space-y-2">
-        <H6 className="text-black">{details.title}</H6>
+        {details.title ? (
+          <H6 className="text-black">{details.title}</H6>
+        ) : (
+          <H6></H6>
+        )}
 
         <div className="flex items-center justify-between">
-          <BMD className="text-black">{details.subtitle}</BMD>
-          <H6 className="text-black">{details.price}</H6>
+          {details.subtitle ? (
+            <BMD className="text-black">{details.subtitle}</BMD>
+          ) : (
+            <BMD></BMD>
+          )}
+          {details.price ? (
+            <H6 className="text-black">{details.price}</H6>
+          ) : (
+            <H6></H6>
+          )}
         </div>
 
         {/* Color Options */}
-        <div className="flex gap-2 pt-1">
-          {details.colors.map((color, index) => (
-            <span
-              key={index}
-              className="w-6 h-6 rounded-full border cursor-pointer"
-              style={{ backgroundColor: color, border: color }}
-            />
-          ))}
-        </div>
+
+        {details.colors ? (
+          <div className="flex gap-2 pt-1">
+            {details.colors.map((color, index) => (
+              <span
+                key={index}
+                className="w-6 h-6 rounded-full border cursor-pointer"
+                style={{ backgroundColor: color, border: color }}
+              />
+            ))}
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );
