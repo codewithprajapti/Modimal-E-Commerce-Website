@@ -1,0 +1,25 @@
+.magnifier-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.magnifier-image {
+  flex: 1;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.magnifier-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.magnifier-preview {
+  width: 420px;
+  height: 520px;
+  border: 1px solid #e5e5e5;
+  background-repeat: no-repeat;
+}

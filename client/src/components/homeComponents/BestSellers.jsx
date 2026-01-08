@@ -34,7 +34,7 @@ export default function BestSellers() {
     },
   ];
   return (
-    <div flex flex-col>
+    <div className="flex flex-col">
       <div className="flex justify-between items-center mb-5">
         <H3 className={'text-black'}> Best Sellers </H3>
         <ButtonSM> Viwe All </ButtonSM>

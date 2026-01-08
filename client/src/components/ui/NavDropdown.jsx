@@ -1,6 +1,7 @@
 import React from 'react';
 import { Images } from '../../utils/headerImages';
 import { BLG, BMD } from '../typography/body';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
   const menuData = {
@@ -9,23 +10,33 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
         {
           title: 'Category',
           items: [
-            'Shop All',
-            'Blouses & Top',
-            'Pants',
-            'Dresses & Jumpsuits',
-            'Outwear & Jackets',
-            'Pullovers',
-            'Tees',
-            'Shorts & Skirts',
+            { title: 'Shop All', uri: 'shop-all' },
+            { title: 'Blouses & Top', uri: '/' },
+            { title: 'Pants', uri: '/' },
+            { title: 'Dresses & Jumpsuits', uri: '/' },
+            { title: 'Outwear & Jackets', uri: '/' },
+            { title: 'Pullovers', uri: '/' },
+            { title: 'Tees', uri: '/' },
+            { title: 'Shorts & Skirts', uri: '/' },
           ],
         },
         {
           title: 'Featured',
-          items: ['New In', 'Modiweek', 'Plus Size', 'Best Seller'],
+          items: [
+            { title: 'New In', uri: '/' },
+            { title: 'Modiweek', uri: '/' },
+            { title: 'Plus Size', uri: '/' },
+            { title: 'Best Seller', uri: '/' },
+          ],
         },
         {
           title: 'More',
-          items: ['Bundles', 'Occasion Wear', 'Matching Set', 'Suiting'],
+          items: [
+            { title: 'Bundles', uri: '/' },
+            { title: 'Occasion Wear', uri: '/' },
+            { title: 'Matching Set', uri: '/' },
+            { title: 'Suiting', uri: '/' },
+          ],
         },
       ],
       images: [
@@ -38,14 +49,14 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
         {
           title: 'Category',
           items: [
-            'Shop All',
-            'Tops & Blouses',
-            'Tees',
-            'Pants',
-            'Jackets & Outwears',
-            'Pullovers',
-            'Dresses & Jumpsuits',
-            'Shorts & Skirts',
+            { title: 'Shop All', uri: '/' },
+            { title: 'Tops & Blouses', uri: '/' },
+            { title: 'Tees', uri: '/' },
+            { title: 'Pants', uri: '/' },
+            { title: 'Jackets & Outwears', uri: '/' },
+            { title: 'Pullovers', uri: '/' },
+            { title: 'Dresses & Jumpsuits', uri: '/' },
+            { title: 'Shorts & Skirts', uri: '/' },
           ],
         },
         {
@@ -85,14 +96,14 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
         {
           title: 'Categories',
           items: [
-            'Shop All',
-            'Top & Blouses',
-            'Tees',
-            'Pants',
-            'Jackets & Outwears',
-            'Pullovers',
-            'Dresses & Jumpsuits',
-            'Shorts & Skirts',
+            { title: 'Shop All', uri: '/' },
+            { title: 'Top & Blouses', uri: '/' },
+            { title: 'Tees', uri: '/' },
+            { title: 'Pants', uri: '/' },
+            { title: 'Jackets & Outwears', uri: '/' },
+            { title: 'Pullovers', uri: '/' },
+            { title: 'Dresses & Jumpsuits', uri: '/' },
+            { title: 'Shorts & Skirts', uri: '/' },
           ],
         },
       ],
@@ -107,12 +118,12 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
         {
           title: 'Sustainability',
           items: [
-            'Mission',
-            'Processing',
-            'Materials',
-            'Packaging',
-            'Product Care',
-            'Our Suppliers',
+            { title: 'Mission', uri: '/sustainability-mission' },
+            { title: 'Processing', uri: '/' },
+            { title: 'Materials', uri: '/sustainability-material' },
+            { title: 'Packaging', uri: '/' },
+            { title: 'Product Care', uri: '/' },
+            { title: 'Our Suppliers', uri: '/' },
           ],
         },
       ],
@@ -121,6 +132,11 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
         { label: '', src: Images.Sustainability2 },
       ],
     },
+  };
+
+  const navigate = useNavigate();
+  const navigateHandler = (uri) => {
+    navigate(uri);
   };
 
   return (
@@ -158,8 +174,11 @@ export default function NavDropdown({ setActiveDropdown, activeDropdown }) {
                           <BLG
                             key={index}
                             className="text-gray-404040 hover:text-black active:text-primary-600 cursor-pointer"
+                            onClick={() => {
+                              navigateHandler(item.uri);
+                            }}
                           >
-                            {item}
+                            {item.title}
                           </BLG>
                         );
                       })}
