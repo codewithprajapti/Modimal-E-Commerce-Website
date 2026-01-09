@@ -2,6 +2,7 @@ import React from 'react';
 import { H3 } from '../typography/headings';
 import { BLG } from '../typography/body';
 import { ButtonSM } from '../typography/buttons';
+import SizeDropDown from './SizeDropDown';
 
 export default function ProductTitle() {
   const colors = ['#8218a1', '#000000'];
@@ -26,6 +27,12 @@ export default function ProductTitle() {
               ></div>
             );
           })}
+        </div>
+        <div className="flex flex-col gap-4">
+          <ButtonSM className={'text-gray-868686 self-end px-0 py-0'}>
+            Size Grid
+          </ButtonSM>
+          <SizeDropDown />
         </div>
       </div>
     </div>
